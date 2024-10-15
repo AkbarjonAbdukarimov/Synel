@@ -1,0 +1,47 @@
+# ASP.NET MVC
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# NuGet packages
+packages/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# xUnit
+TestResults/
+
+# Miscellaneous
+*.log
+*.bak
+*.cache
+*.vspscc
+*.vssscc
+*.psess
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+node_modules/
+
+# Project folders
+/src/
+/tests/
