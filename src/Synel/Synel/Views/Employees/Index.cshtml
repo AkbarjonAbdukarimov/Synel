@@ -1,0 +1,193 @@
+﻿@model IEnumerable<Synel.Models.Employees>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@if (ViewBag.RowsAffected != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>@ViewBag.RowsAffected</strong> rows were inserted.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="get">
+    <p>
+        Search by Forename Field: <input type="text" name="searchString" value="@ViewData["searchString"]" />
+        <input type="submit" value="Search" />
+    </p>
+    <div>
+        <p>Sort By:</p>
+        <div class="form-check">
+            <input checked class="form-check-input" type="radio" name="sortOrder" value="ACS" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+                A to Z
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortOrder" value="DESC" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Z to A
+            </label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-evenly align-items-center">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.PayrolNumber) id="PayrolNumber">
+            <label class="form-check-label" for="PayrolNumber">
+                @Html.DisplayNameFor(model => model.PayrolNumber)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Fornames) id="Fornames">
+            <label class="form-check-label" for="Fornames">
+                @Html.DisplayNameFor(model => model.Fornames)
+            </label>
+        </div>
+        <div class="form-check">
+            <input checked class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Surname) id="Surname">
+            <label class="form-check-label" for="Surname">
+                @Html.DisplayNameFor(model => model.Surname)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.DoB) id="DoB">
+            <label class="form-check-label" for="DoB">
+                @Html.DisplayNameFor(model => model.DoB)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Telephone) id="Telephone">
+            <label class="form-check-label" for="Telephone">
+                @Html.DisplayNameFor(model => model.Telephone)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Mobile) id="Mobile">
+            <label class="form-check-label" for="Mobile">
+                @Html.DisplayNameFor(model => model.Mobile)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Address) id="Address">
+            <label class="form-check-label" for="Address">
+                @Html.DisplayNameFor(model => model.Address)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Address2) id="Address2">
+            <label class="form-check-label" for="Address2">
+                @Html.DisplayNameFor(model => model.Address2)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.Postcode) id="Postcode">
+            <label class="form-check-label" for="Postcode">
+                @Html.DisplayNameFor(model => model.Postcode)
+            </label>
+        </div><div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.EmailHome) id="EmailHome">
+            <label class="form-check-label" for="EmailHome">
+                @Html.DisplayNameFor(model => model.EmailHome)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sortField" value=@Html.DisplayNameFor(model => model.StartDate) id="StartDate">
+            <label class="form-check-label" for="StartDate">
+                @Html.DisplayNameFor(model => model.StartDate)
+            </label>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PayrolNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornames)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayrolNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornames)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Postcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
